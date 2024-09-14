@@ -47,6 +47,9 @@ class TestSaucedemo:
             driver.get(url)
             # Выполняем авторизацию
             self.authorize(driver)
+            url_after_authorization = driver.current_url
+            # Проверяем успешность авторизации
+            assert 'https://www.saucedemo.com/inventory.html' in url_after_authorization, "authorization failed"
             # Осуществляем добавление товара и переход в корзину
             self.my_cart(driver)
             # Добавленный товар в корзине
