@@ -51,6 +51,7 @@ class TestSaucedemo:
             finish_button = driver.find_element(By.XPATH, "//button[@name ='finish']")
             finish_button.click()
     # Тест на покупку товара
+    @allure.description("E2E test. Для прохождения теста пользователю необходимо открыть страницу https://www.saucedemo.com")
     def test_shopping(self):
         url = 'https://www.saucedemo.com'
         with webdriver.Chrome() as driver:
@@ -71,4 +72,4 @@ class TestSaucedemo:
             actual_header = driver.find_element(By.XPATH, "//h2[@class ='complete-header']") # поиск элемента успешного оформления покупки
             expected_result = 'Thank you for your order!' # Ожидаемый текст заголовка после успешной покупки
             actual_result = actual_header.text # Фактический результат
-            assert actual_result == expected_result, "actual_result doesn't look like expected_result" @allure.description("E2E test")
+            assert actual_result == expected_result, "actual_result doesn't look like expected_result"
